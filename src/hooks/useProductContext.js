@@ -62,6 +62,8 @@ const searchPrice = (product) => {
 
   }
 
+  
+
   return (
     <ProductContext.Provider value={{ products,loading ,searchProduct, setSearchProduct, searchName, searchCategory, category,setCategory, searchPrice, preco, setPreco }}>
       {children}

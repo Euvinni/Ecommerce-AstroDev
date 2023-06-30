@@ -8,11 +8,32 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 import logo from "../utils/logo2.png";
 import { useContext } from "react";
 import { ProductContext } from "../hooks/useProductContext";
-import Modal from "./Modal";
+
+import ModalForm from "./ModalForm";
+import { Link } from "react-router-dom";
+
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const[openModal, setOpenModal] = useState(false)
+
+
+
+  
+
+  const[openFormModal, setOpenFormModal] = useState(false)
+
+  const handleOpenModal = () => {
+    setOpenFormModal(true);
+   
+
+  };
+
+  const handleCloseModal = () => {
+    setOpenFormModal(false)
+  }
+
 
   const toogleNav = () => {
     setIsOpen(!isOpen);
@@ -22,19 +43,28 @@ const Header = () => {
   const {searchProduct, setSearchProduct} = useContext(ProductContext)
 
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   
 
   return (
-    <header>
-      <nav className="flex items-center justify-between flex-wrap  bg-colorlogo  shadow-md p-2 w-full z-10 top-0">
+    <header className="fixed top-0  w-full z-10 shadow-md">
+      <nav className="flex items-center justify-between flex-wrap  bg-colorlogo  ">
         <div className="flex items-center text-white ml-3  " >
           <div className="">
             <span className="" >
-              <img
+              <Link to='/'>
+              <img onClick={scrollToTop}
                 src={logo}
                 alt="Logo escrito astrodev out fit com emblema de um planeta"
                 className="w-24 h-24 "
               />
+              </Link>
             </span>
           </div>
         </div>
@@ -87,8 +117,8 @@ const Header = () => {
 
             <li className="mr-3  ">
               <div className="inline-block text-white no-underline hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4">
-                <button onClick={() => setOpenModal(true)}>Sobre-nós</button>
-                <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)} />
+                <button>Sobre-nós</button>
+                
               </div>
             </li>
             <li className="mr-3">
@@ -105,10 +135,21 @@ const Header = () => {
               </div>
             </li>
             <li className="mr-3">
-              <div className="inline-block text-white no-underline hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4">
+              <div className="inline-block text-white  hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4">
                 Contato
               </div>
             </li>
+            <li className="mr-3">
+              <div className={`inline-block text-white  hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4 first-letter:$`}>
+              <button onClick={handleOpenModal}>Login</button>
+              <ModalForm handleOpenModal={handleOpenModal} openFormModal={openFormModal} handleCloseModal={handleCloseModal}/>
+              {/* {openFormModal && <ModalForm />} */}
+              
+              
+              </div>
+            </li>
+           
+
             <li className="mr-3">
               <div className="inline-block text-white no-underline hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4">
                 <BsFillCartCheckFill size={20} />

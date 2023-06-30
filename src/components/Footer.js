@@ -117,7 +117,7 @@ const Footer = () => {
         <div className="p-4 text-center">
           © 2023 Copyright:
           <span className="text-white">
-          AstroDev OutFit
+          Desenvolvido por João Lucas de Lima Batista
           </span>
         </div>
       </footer>

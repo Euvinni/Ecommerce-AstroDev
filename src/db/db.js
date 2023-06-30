@@ -42,7 +42,7 @@ const db =  [
         priceDesc: 49.99,
         price: 39.99,
         stoke: 5,
-        rate: 4.5,
+        rate: 5,
         description:
           "Camiseta de astrounata totalmente personalizada, e feita de 100% algodão",
         image: camiseta1,
@@ -125,7 +125,7 @@ const db =  [
         category: "Camiseta",
         priceDesc: 49.99,
         price: 39.99,
-        rate: 4.5,
+        rate: 4.8,
         stoke: 5,
         description:
           "Camiseta de astrounata totalmente personalizada, e feita de 100% algodão",
@@ -214,7 +214,7 @@ const db =  [
         id: 16,
         category: "Caneca",
         price: 29.99,
-        rate: 4.5,
+        rate: 4.8,
         stoke: 5,
         description:
           "Caneca personalizada astronauta",
@@ -225,7 +225,7 @@ const db =  [
         id: 17,
         category: "Caneca",
         price: 29.99,
-        rate: 4.5,
+        rate: 5,
         stoke: 5,
         description:
           "Caneca personalizada astronauta",
@@ -236,7 +236,7 @@ const db =  [
         id: 18,
         category: "Moleton",
         price: 59.99,
-        rate: 4.5,
+        rate: 4.9,
         stoke: 5,
         description:
           "Moleton personalizado com tema astronauta",
@@ -247,7 +247,7 @@ const db =  [
         id: 19,
         category: "Moleton",
         price: 59.99,
-        rate: 4.5,
+        rate: 5,
         stoke: 5,
         description:
           "Moleton personalizado com tema astronauta",
@@ -258,7 +258,7 @@ const db =  [
         id: 20,
         category: "Moleton",
         price: 59.99,
-        rate: 4.5,
+        rate: 4.8,
         stoke: 5,
         description:
           "Moleton personalizado com tema astronauta",
@@ -269,7 +269,7 @@ const db =  [
         id: 21,
         category: "Moleton",
         price: 59.99,
-        rate: 4.5,
+        rate: 4.9,
         stoke: 5,
         description:
           "Moleton personalizado com tema astronauta",
@@ -280,7 +280,7 @@ const db =  [
         id: 22,
         category: "Moleton",
         price: 59.99,
-        rate: 4.5,
+        rate: 5,
         stoke: 5,
         description:
           "Moleton personalizado com tema astronauta",
@@ -291,7 +291,7 @@ const db =  [
         id: 23,
         category: "Moleton",
         price: 59.99,
-        rate: 4.5,
+        rate: 5,
         stoke: 5,
         description:
           "Moleton personalizado com tema astronauta",
@@ -302,7 +302,7 @@ const db =  [
         id: 24,
         category: "Moleton",
         price: 59.99,
-        rate: 4.5,
+        rate: 4.9,
         stoke: 5,
         description:
           "Moleton personalizado com tema astronauta",

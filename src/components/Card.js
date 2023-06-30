@@ -1,54 +1,26 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../hooks/useProductContext";
-
-const Card = () => {
-  const { products, searchName, searchCategory, category,setCategory, searchPrice, preco, setPreco} = useContext(ProductContext);
+import { Link } from "react-router-dom";
+const Card = ({product}) => {
+  const { name,id, category, priceDesc, price, rate, description, image } = product;
+  
   
   return (
     
     <>
-    <div className="flex justify-center border mt-12">
-      <div className="flex">
-      <input
-            type="range"
-            min={0}
-            max={100}
-            value={preco}
-            onChange={(e) => setPreco(e.target.value)}
-            step={5}
-            className="w-48 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-slate-900"
-          />
-          <span className="border-solid border-2 border-slate-900 w-18  text-center font-bold">
-	      </span>
-      </div>
-
-    </div>
-     <div className="flex  mt-4 justify-end">
-        <div className="rounded border flex">
-          {/* <select name='filter-category' id="filters" value={category} 
-          onChange={(e) => setCategory(e.target.value)}
-          className=" block appearance-none w-full bg-gray-200 border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-            <option value="">Selecionar</option>
-            <option value="Camiseta">Camiseta</option>
-            <option value="Almofada">Almofada</option>
-            <option value="Caneca">Caneca</option>
-            <option value="Moleton">Moleton</option>
-          </select> */}
-          </div>
-        </div>
-
-    <div className="flex flex-wrap justify-center ">
-     
-      
-      {products.filter(searchPrice).filter(searchCategory).filter(searchName).map((item, i) => (
-        <div key={i} className="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white  shadow-md hover:scale-105 ease-out">
+    
+        <div  className="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white  shadow-md hover:scale-105 ease-out">
           <div className="flex justify-center ">
-
+            <Link to={`/product/${id}`}>
             <img
-              src={item.image}
+              src={image}
               alt="Imagem do produto de compra"
               className="h-64 flex "
             />
+            
+            </Link>
+
+           
           </div>
           <span className="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-black text-center text-sm text-white">
             Promoção
@@ -56,18 +28,18 @@ const Card = () => {
           <div className="mt-4 px-5 pb-5">
             <div>
               <h3 className="text-xl font-semibold tracking-tight text-slate-900">
-                {item.name}
+                {name}
               </h3>
             </div>
             <div>
               <h5 className="text-xs  tracking-tight text-slate-900">
-                {item.description}
+                {description}
               </h5>
             </div>
             <div className="mt-2.5 mb-5 flex items-center">
 
               <span className="mr-2 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">
-                5.0
+                {rate}
               </span>
               <svg
                 aria-hidden="true"
@@ -117,7 +89,7 @@ const Card = () => {
             </div>
             <div className="flex items-center justify-between">
               <p>
-                <span className="text-3xl font-bold text-slate-900">{item.price}</span>
+                <span className="text-3xl font-bold text-slate-900">{price}</span>
                 <span className="text-sm text-slate-900 line-through">
                   
                 </span>
@@ -144,9 +116,9 @@ const Card = () => {
         </div>
         
        
-      ))}
       
-      </div>
+      
+      
       </>
   )}
     
