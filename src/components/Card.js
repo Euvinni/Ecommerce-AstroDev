@@ -21,12 +21,8 @@ const Card = ({product}) => {
             />
             
             </Link>
-
-           
           </div>
-          <span className="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-black text-center text-sm text-white">
-            Promoção
-          </span>
+
           <div className="mt-4 px-5 pb-5">
             <div>
               <h3 className="text-xl font-semibold tracking-tight text-slate-900">
