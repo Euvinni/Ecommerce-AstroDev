@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useCartContext } from "../hooks/useCartContext";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 
 const Card = ({product}) => {
