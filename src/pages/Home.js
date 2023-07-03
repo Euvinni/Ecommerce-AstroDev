@@ -22,8 +22,8 @@ const Home = () => {
             <input
               id="price"
               
-              min={29.99}
-              max={59.99}
+              min={79.99}
+              max={149.99}
               value={preco}
               onChange={(e) => setPreco(e.currentTarget.value)}
               type="range"
@@ -33,7 +33,7 @@ const Home = () => {
               className=" flex justify-center mr-4 bg-blue-100 rounded m-2"
               for="price"
             >
-              Valor: {preco} (Mín: 29.99 - Máx: 59.99)
+              Valor até: {preco} 
             </label>
             </div>
          
@@ -46,7 +46,7 @@ const Home = () => {
                 className="w-48 outline-none"
                 onChange={(e) => setOrder(e.target.value)}
               >
-                <option value='Ordernar'>Ordenar</option>
+                <option value='Ordenar'>Ordenar por</option>
                 <option value="Crescente">Crescente</option>
                 <option value="Decrescente">Decrescente</option>
                

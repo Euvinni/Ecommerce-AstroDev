@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
-import { ProductContext } from "../hooks/useProductContext";
+import { useCartContext } from "../hooks/useCartContext";
 import { Link } from "react-router-dom";
+
+
 const Card = ({product}) => {
-  const { name,id, category, priceDesc, price, rate, description, image } = product;
-  
+  const { name, id, price, rate, description, image } = product;
+  const { addCart } = useContext(useCartContext)
   
   return (
     
     <>
     
         <div  className="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white  shadow-md hover:scale-105 ease-out">
-          <div className="flex justify-center ">
-            <Link to={`/product/${id}`}>
+          <div className="flex justify-center " to={`/product/${id}`}>
+            <Link >
             <img
               src={image}
               alt="Imagem do produto de compra"
@@ -109,7 +111,9 @@ const Card = ({product}) => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
+                <button onClick={() => addCart(product, id)}>
                 Comprar
+                </button>
               </div>
             </div>
           </div>

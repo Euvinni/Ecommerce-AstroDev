@@ -1,70 +1,33 @@
-import React, { useState } from "react";
-
-// ICONS
-import { ImMenu } from "react-icons/im";
-import { BsFillCartCheckFill } from "react-icons/bs";
-
-// IMAGE
-import logo from "../utils/logo2.png";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
+import Logo from "../utils/logo.jpg";
+import { BiMenuAltRight } from "react-icons/bi";
+import { BsCart } from "react-icons/bs";
 import { ProductContext } from "../hooks/useProductContext";
-
-import ModalForm from "./ModalForm";
-import { Link } from "react-router-dom";
-
-
+import { useCartContext } from "../hooks/useCartContext";
+import { sideBarContext } from "../hooks/sideBarContext";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const[openModal, setOpenModal] = useState(false)
-
-
-
-  
-
-  const[openFormModal, setOpenFormModal] = useState(false)
-
-  const handleOpenModal = () => {
-    setOpenFormModal(true);
-   
-
-  };
-
-  const handleCloseModal = () => {
-    setOpenFormModal(false)
-  }
-
+  const [open, setOpen] = useState(false);
+  const { isOpen, setIsOpen } = useContext(sideBarContext);
+  const { amount } = useContext(useCartContext);
 
   const toogleNav = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(!open);
   };
 
-  const { products, searchName, searchCategory, category,setCategory, searchPrice, preco, setPreco} = useContext(ProductContext)
-  const {searchProduct, setSearchProduct} = useContext(ProductContext)
-
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
-  
+  const { searchProduct, setSearchProduct } = useContext(ProductContext);
 
   return (
-    <header className="fixed top-0  w-full z-10 shadow-md">
-      <nav className="flex items-center justify-between flex-wrap  bg-colorlogo  ">
-        <div className="flex items-center text-white ml-3  " >
-          <div className="">
-            <span className="" >
-              <Link to='/'>
-              <img onClick={scrollToTop}
-                src={logo}
-                alt="Logo escrito astrodev out fit com emblema de um planeta"
-                className="w-24 h-24 "
+    <header>
+      <nav className="flex items-center justify-between flex-wrap bg-[#65fdfe]  shadow-md p-2 w-full z-10 top-0">
+        <div className="flex items-center text-whitem ml-3 ">
+          <div>
+            <span>
+              <img
+                src= {Logo}
+                alt="Logo"
+                className="w-24 h-24"
               />
-              </Link>
             </span>
           </div>
         </div>
@@ -74,7 +37,7 @@ const Header = () => {
             onClick={toogleNav}
             className="flex items-center px-3 py-2 rounded border border-gray-500"
           >
-            <ImMenu size={20} />
+            <BiMenuAltRight size={20} />
           </button>
         </div>
 
@@ -83,16 +46,16 @@ const Header = () => {
             isOpen ? "" : "hidden"
           }`}
         >
-          <ul className=" lg:flex justify-end flex-1 items-center cursor-pointer ">
-            <li className="mr-3  ">
-              <div className="pt-2 relative mx-auto text-gray-600 ">
+          <ul className=" lg:flex justify-end flex-1 items-center">
+            <li className="mr-3 " >
+              <div className="pt-2 relative mx-auto text-gray-600">
                 <input
                   className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                   type="search"
                   name="search"
-                  placeholder="Pesquisar"
-                  onChange={(e) => setSearchProduct(e.target.value)}
+                  placeholder="Procurar"
                   value={searchProduct}
+                  onChange={(e) => setSearchProduct(e.target.value)}
                 />
                 <button
                   type="submit"
@@ -115,44 +78,31 @@ const Header = () => {
               </div>
             </li>
 
-            <li className="mr-3  ">
-              <div className="inline-block text-white no-underline hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4">
-                <button>Sobre-nós</button>
-                
+            <li className="mr-3 cursor-pointer">
+              <div className="inline-block text-gray-950 no-underline hover:text-gray-200 ease-in-out hover:text-underline py-2 px-4">
+                Sobre-nós
               </div>
             </li>
-            <li className="mr-3">
-              <div className="inline-block text-white no-underline hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4">
-              <select name='filter-category' id="filters" value={category} 
-                onChange={(e) => setCategory(e.target.value)}
-                className=" block appearance-none w-full text-white bg-colorlogo text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none ">
-                 <option value="">Produtos</option>
-                 <option value="Camiseta">Camiseta</option>
-                 <option value="Almofada">Almofada</option>
-                 <option value="Caneca">Caneca</option>
-                 <option value="Moleton">Moleton</option>
-                 </select>
+            <li className="mr-3 cursor-pointer">
+              <div className="inline-block text-gray-950 no-underline hover:text-gray-200 ease-in-out hover:text-underline py-2 px-4">
+                Produtos
               </div>
             </li>
-            <li className="mr-3">
-              <div className="inline-block text-white  hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4">
+            <li className="mr-3 cursor-pointer">
+              <div className="inline-block text-gray-950 no-underline hover:text-gray-200 ease-in-out hover:text-underline py-2 px-4">
                 Contato
               </div>
             </li>
-            <li className="mr-3">
-              <div className={`inline-block text-white  hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4 first-letter:$`}>
-              <button onClick={handleOpenModal}>Login</button>
-              <ModalForm handleOpenModal={handleOpenModal} openFormModal={openFormModal} handleCloseModal={handleCloseModal}/>
-              {/* {openFormModal && <ModalForm />} */}
-              
-              
-              </div>
-            </li>
-           
-
-            <li className="mr-3">
-              <div className="inline-block text-white no-underline hover:text-gray-950 ease-in-out hover:text-underline py-2 px-4">
-                <BsFillCartCheckFill size={20} />
+            <li className="mr-3 cursor-pointer">
+            <div className="flex">
+                <div
+                  onClick={() => toogleNav()}
+                  className="inline-block text-white no-underline hover:text-gray-200 ease-in-out hover:text-underline py-2 px-4 cursor-pointer text-xl">
+                  <BsCart size={24} />
+                </div>
+                <div className="text-red-400">
+                  {amount}
+                </div>
               </div>
             </li>
           </ul>

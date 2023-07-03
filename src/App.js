@@ -1,9 +1,9 @@
 import Footer from "./components/Footer";
 // import HeaderTeste from "./components/HeaderTeste";
 import Header from "./components/Header";
-import ProductDetail from "./components/ProductDetail";
 import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SideBar from "./components/SideBar";
 
 function App() {
   return (
@@ -12,13 +12,12 @@ function App() {
       <Header />
       {/* caminho das rotas */}
       <Routes> 
-       {/* minhas rotas*/}
+        {/* minhas rotas*/}
         <Route path="/"  element={<Home />}/> 
         {/* rotas especificas*/}
-        <Route path="/product/:id" element={<ProductDetail/>}/>
-      
       </Routes>
       <Footer />
+      <SideBar />
       </BrowserRouter>
     </>
   );

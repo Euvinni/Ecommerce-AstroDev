@@ -72,3 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Labcommerce-Astro-dev-outfit
 # Labcommer-AstroDev-OutFit
 # Projeto-Labcommerce
+# Ecommerce-AstroDev
+# Ecommerce-AstroDev
